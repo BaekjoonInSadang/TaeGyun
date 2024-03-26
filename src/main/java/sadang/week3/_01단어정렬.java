@@ -19,15 +19,13 @@ public class _01단어정렬 {
             word[i] = br.readLine();
         }
 
-        sortByLengthAndDictionary(word);
-
-        Set<String> uniqueWords = new LinkedHashSet<>(Arrays.asList(word));
+        Set<String> uniqueWords = sortByLengthAndDictionary(word);
         for (String uniqueWord : uniqueWords) {
             System.out.println(uniqueWord);
         }
     }
 
-    private static void sortByLengthAndDictionary(String[] word) {
+    private static Set<String> sortByLengthAndDictionary(String[] word) {
         Arrays.sort(word, new Comparator<String>() {
             @Override
             public int compare(String a, String b) {
@@ -38,5 +36,7 @@ public class _01단어정렬 {
                 return Integer.compare(a.length(), b.length());
             }
         });
+
+        return new LinkedHashSet<>(Arrays.asList(word));
     }
 }
