@@ -1,6 +1,8 @@
 package sadang.week2;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class _04사탕게임 {
 
@@ -10,8 +12,6 @@ public class _04사탕게임 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
         num = Integer.parseInt(br.readLine());
         board = new char[num][num];
 
@@ -21,6 +21,7 @@ public class _04사탕게임 {
             board[i] = line.toCharArray();
         }
 
+        // 행
         for(int i = 0; i < num; i++) {
             for(int j = 0; j < num-1; j++) {
                 char swap = board[i][j];
@@ -35,26 +36,25 @@ public class _04사탕게임 {
             }
         }
 
+        // 열
         for(int i = 0; i < num; i++) {
             for(int j = 0; j < num-1; j++) {
                 char swap = board[j][i];
                 board[j][i] = board[j+1][i];
                 board[j+1][i] = swap;
-
                 max = Math.max(search(), max);
-
+                // 원상 복구
                 swap = board[j][i];
                 board[j][i] = board[j+1][i];
                 board[j+1][i] = swap;
             }
         }
 
-        bw.write(String.valueOf(max));
-        bw.flush();
-        bw.close();
+        System.out.println(max);
     }
 
     private static int search() {
+        // 가로
         for(int i = 0; i < num; i++) {
             int cnt = 1;
             for(int j = 0; j < num-1; j++) {
@@ -67,6 +67,7 @@ public class _04사탕게임 {
             }
         }
 
+        // 세로
         for(int i = 0; i < num; i++) {
             int cnt = 1;
             for(int j = 0; j < num-1; j++) {

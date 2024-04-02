@@ -16,7 +16,7 @@ public class _03회문인수 {
             answer[i] = findPalindrome(num);
         }
 
-        for (int j = 0 ; j < n; j++) {
+        for (int j = 0; j < n; j++) {
             bw.write(String.valueOf(answer[j]));
             bw.newLine();
         }
