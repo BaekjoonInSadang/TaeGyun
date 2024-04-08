@@ -22,7 +22,9 @@ public class _01문자열집합 {
 
         int count = 0;
         for (int i = 0; i < m; i++) {
-            if (map.containsKey(br.readLine())) count++;
+            if (map.containsKey(br.readLine())) {
+                count++;
+            }
         }
 
         System.out.print(count);
