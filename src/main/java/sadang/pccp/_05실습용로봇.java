@@ -1,6 +1,6 @@
 package sadang.pccp;
 
-public class _03실습용로봇 {
+public class _05실습용로봇 {
 
     public static void main(String[] args) {
         String commands = "GRGLGRG";
